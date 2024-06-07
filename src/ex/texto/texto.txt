@@ -1,4 +1,4 @@
-Mando
+Mando implements comparable
 
 	-modelo: String
 	-altura: double
@@ -14,10 +14,12 @@ Mando
 	get de todo y solo set de precio
 	
 	
+	+toString: String
 	
 	
+	+compareTo
 	
-	TV extends Mando implements Televisor:
+	TV extends Mando implements Volumenes:
 	
 		-volumen: int
 		-canal: int
@@ -35,10 +37,12 @@ Mando
 		+setCanal(int): void
 		
 		
+		+toString: String
 		
 		
 		
-	Minicadena extends Mando implements Televisor: //solo controla el volumne, es otro tipo de mando 
+		
+	Minicadena extends Mando implements Volumenes: //solo controla el volumne, es otro tipo de mando 
 		
 		-volumen: int
 		
@@ -48,21 +52,50 @@ Mando
 		
 		+setVolumen(int): void
 		
+		
+		+toString: String
+		
 		subirVolumen()	//sube volumen por 10. si el volumen +10 supera 100, entonces suma menos hasta llegar a 100 
 		(puedo hacer: num=num+(100-num))
 		
 		bajarVolumen()	//baja volumen por 10
 		
-	Interface Televisor:
+	Interface Volumenes:
 	
 		+void subirVolumen();
 		+void bajarVolumen();
 		
 		
 		
-	Aspiradora extends Mando:
+	Aspiradora extends Mando implements Velocidades:
 		
 		-velocidad: int
+		
+		+toString: String
+		
+		+void subirVelocidad(); //por 1
+		+void bajarVelocidad(); //por 1
+		
+		
+	Acondicionadora extends Mando implements Velocidades:
+		
+		-velocidad: int
+		
+		-temperatura: int
+		
+		+void subirVelocidad(); //por 3
+		+void bajarVelocidad(); //por 3
+		
+		
+	Interface Velocidades:
+	
+		+void subirVelocidad();
+		+void bajarVelocidad();
+		
+		
+		
+		
+		
 		
 		
 		
