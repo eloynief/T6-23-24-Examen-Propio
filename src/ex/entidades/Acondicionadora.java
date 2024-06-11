@@ -4,17 +4,22 @@ import ex.interfaces.Velocidades;
 
 //Clase Acondicionadora
 class Acondicionadora extends Mando implements Velocidades {
-	private int velocidad;
-	private int temperatura;
+	private boolean modo=false;
+	private int velocidad=0;
+	private int temperatura=24;
 
 	// Constructor vacío
 	public Acondicionadora() {
 	}
 
 	// Constructor con velocidad y temperatura
-	public Acondicionadora(int velocidad, int temperatura) {
+	public Acondicionadora(int velocidad, int temperatura,String modo) {
 		this.velocidad = velocidad;
 		this.temperatura = temperatura;
+		if(modo.equalsIgnoreCase("Si")||modo.equalsIgnoreCase("Sí")||modo.equalsIgnoreCase("No")) {
+			this.modo=(modo.equalsIgnoreCase("Si")||modo.equalsIgnoreCase("Sí"))?true:false;
+		}
+		
 	}
 
 	// Constructor con todo + herencia
@@ -23,16 +28,22 @@ class Acondicionadora extends Mando implements Velocidades {
 		super(modelo, altura, anchura, precio);
 		this.velocidad = velocidad;
 		this.temperatura = temperatura;
+
+		
+		
 	}
 
 	// Getters y setters
+	
+	
 	public int getVelocidad() {
 		return velocidad;
 	}
 
-	public void setVelocidad(int velocidad) {
-		this.velocidad = velocidad;
-	}
+	//la velocidad se modifica usando subir bajar
+//	public void setVelocidad(int velocidad) {
+//		this.velocidad = velocidad;
+//	}
 
 	public int getTemperatura() {
 		return temperatura;
@@ -41,15 +52,50 @@ class Acondicionadora extends Mando implements Velocidades {
 	public void setTemperatura(int temperatura) {
 		this.temperatura = temperatura;
 	}
+	
+	
+	public boolean isModo() {
+		return modo;
+	}
+	
+	
+	
+	public void setModo(boolean modo) {
+		this.modo = modo;
+	}
+
+	
+	
+	@Override
+	public String toString() {
+		String str=super.toString();
+		
+		
+		str+="Velocidad:" + velocidad +"\n";
+		str+="Temperatura: " + temperatura +"\n";
+		str+="Modo: "+ (modo?"Encendido":"Apagado")+"\n";
+		
+		return str;
+	}
 
 	// Implementación de métodos de Velocidades
 	@Override
 	public void subirVelocidad() {
-		velocidad += 3;
+		if(velocidad+3>5) {
+			velocidad=5;
+		}
+		else {
+			velocidad += 3;
+		}
 	}
 
 	@Override
 	public void bajarVelocidad() {
-		velocidad -= 3;
+		if(velocidad-3<0) {
+			velocidad=0;
+		}
+		else{
+			velocidad -= 3;
+		}
 	}
 }

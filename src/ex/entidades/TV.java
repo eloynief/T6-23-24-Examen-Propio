@@ -55,6 +55,19 @@ class TV extends Mando implements Volumenes{
 		}
 	}
 
+	
+	
+	
+	
+	
+	
+	@Override
+	public String toString() {
+		String str=super.toString();
+		
+		return "TV [volumen=" + volumen + ", canal=" + canal + "]";
+	}
+
 	public int getCanal() {
 		return canal;
 	}

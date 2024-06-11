@@ -60,7 +60,7 @@ Mando implements comparable
 		
 		bajarVolumen()	//baja volumen por 10
 		
-	Interface Volumenes:
+	<<Interface>> Volumenes:
 	
 		+void subirVolumen();
 		+void bajarVolumen();
@@ -87,7 +87,7 @@ Mando implements comparable
 		+void bajarVelocidad(); //por 3
 		
 		
-	Interface Velocidades:
+	<<Interface>> Velocidades:
 	
 		+void subirVelocidad();
 		+void bajarVelocidad();

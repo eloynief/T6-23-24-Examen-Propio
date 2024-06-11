@@ -2,10 +2,11 @@ package ex.entidades;
 
 //Clase Mando
 class Mando implements Comparable<Mando>{
-	private String modelo;
-	private double altura;
-	private double anchura;
-	private double precio;
+	private String modelo="";
+	private double altura=0;
+	private double anchura=0;
+	private double precio=0;
+	private boolean boton=false;
 
 	// Constructor vacío
 	public Mando() {
@@ -16,6 +17,8 @@ class Mando implements Comparable<Mando>{
 		this.modelo = modelo;
 		this.altura = altura;
 		this.anchura = anchura;
+		
+		
 	}
 
 	// Constructor con todo
@@ -69,6 +72,26 @@ class Mando implements Comparable<Mando>{
 	}
 
 	
+	
+	
+	
+	
+	
+	public boolean isBoton() {
+		return boton;
+	}
+
+//	public void setBoton(String boton) {
+//
+//		//lo he hecho asi se que puedo hacerlo de otra forma no me mates elena
+//		//podria hacer otro caso para el no pero he pensado en hacerlo de esta manera
+//		//y que si la opcion no es si entonces es false
+//		
+//		if(boton.equalsIgnoreCase("Si")||boton.equalsIgnoreCase("Sí")||boton.equalsIgnoreCase("No")) {
+//			this.boton=(boton.equalsIgnoreCase("Si")||boton.equalsIgnoreCase("Sí"))?true:false;
+//		}
+//	}
+
 	@Override
 	public String toString() {
 		String str="";
@@ -77,7 +100,7 @@ class Mando implements Comparable<Mando>{
 		str+="Altura: " + altura + "\n";
 		str+="Anchura: "+anchura+"\n";
 		str+="Precio: " + precio + "\n";
-		
+		str+="Estado: "+(boton?"Encendido":"Apagado")+"\n";
 		return str;
 	}
 	
@@ -97,6 +120,17 @@ class Mando implements Comparable<Mando>{
 
 		
 		return num;
+	}
+	
+	
+	
+	public void encenderMando() {
+		this.boton=true;
+	}
+	
+	
+	public void apagarMando() {
+		this.boton=false;
 	}
 	
 	

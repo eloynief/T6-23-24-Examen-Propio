@@ -26,8 +26,20 @@ class Aspiradora extends Mando implements Velocidades {
 		return velocidad;
 	}
 
-	public void setVelocidad(int velocidad) {
-		this.velocidad = velocidad;
+//	public void setVelocidad(int velocidad) {
+//		this.velocidad = velocidad;
+//	}
+
+
+	@Override
+	public String toString() {
+		String str=super.toString();
+		
+		
+		str+="Velocidad:" + velocidad +"\n";
+		
+		
+		return str;
 	}
 
 	// Implementación de métodos de Velocidades
