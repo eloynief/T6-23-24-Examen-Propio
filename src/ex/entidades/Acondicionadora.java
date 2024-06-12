@@ -16,9 +16,10 @@ class Acondicionadora extends Mando implements Velocidades {
 	public Acondicionadora(int velocidad, int temperatura,String modo) {
 		this.velocidad = velocidad;
 		this.temperatura = temperatura;
-		if(modo.equalsIgnoreCase("Si")||modo.equalsIgnoreCase("Sí")||modo.equalsIgnoreCase("No")) {
-			this.modo=(modo.equalsIgnoreCase("Si")||modo.equalsIgnoreCase("Sí"))?true:false;
-		}
+		
+//		if(modo.equalsIgnoreCase("Si")||modo.equalsIgnoreCase("Sí")||modo.equalsIgnoreCase("No")) {
+//			this.modo=(modo.equalsIgnoreCase("Si")||modo.equalsIgnoreCase("Sí"))?true:false;
+//		}
 		
 	}
 
