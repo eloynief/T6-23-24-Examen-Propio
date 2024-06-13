@@ -3,8 +3,11 @@ package ex.entidades;
 import ex.interfaces.Velocidades;
 
 //Clase Acondicionadora
-class Acondicionadora extends Mando implements Velocidades {
-	private boolean modo=false;
+public class Acondicionadora extends Mando implements Velocidades {
+	
+	private enum Modo {FRIO,CALOR}
+	
+	private Modo modo=Modo.FRIO;
 	private int velocidad=0;
 	private int temperatura=24;
 
@@ -13,7 +16,8 @@ class Acondicionadora extends Mando implements Velocidades {
 	}
 
 	// Constructor con velocidad y temperatura
-	public Acondicionadora(int velocidad, int temperatura,String modo) {
+	public Acondicionadora(String modelo, double altura, double anchura, int velocidad, int temperatura) {
+		super(modelo, altura, anchura);
 		this.velocidad = velocidad;
 		this.temperatura = temperatura;
 		
@@ -55,14 +59,22 @@ class Acondicionadora extends Mando implements Velocidades {
 	}
 	
 	
-	public boolean isModo() {
-		return modo;
+	public String isModo() {
+		return String.valueOf(modo);
 	}
 	
 	
 	
-	public void setModo(boolean modo) {
-		this.modo = modo;
+	public void cambiaModo() {
+		
+		if(modo==Modo.FRIO) {
+			modo=Modo.CALOR;
+		}
+		else {
+			modo=Modo.FRIO;
+		}
+		
+		//this.modo = Modo.valueOf(modo);
 	}
 
 	
@@ -74,7 +86,8 @@ class Acondicionadora extends Mando implements Velocidades {
 		
 		str+="Velocidad:" + velocidad +"\n";
 		str+="Temperatura: " + temperatura +"\n";
-		str+="Modo: "+ (modo?"Encendido":"Apagado")+"\n";
+		str+="Modo: "+modo.toString()+"\n";
+		//str+="Modo: "+ (modo?"Encendido":"Apagado")+"\n";
 		
 		return str;
 	}

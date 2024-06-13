@@ -3,7 +3,7 @@ package ex.entidades;
 import ex.interfaces.Volumenes;
 
 //Clase TV
-class TV extends Mando implements Volumenes{
+public class TV extends Mando implements Volumenes{
 	
 	/*
 	 * atributos
@@ -17,8 +17,10 @@ class TV extends Mando implements Volumenes{
 	}
 
 	// Constructor con volumen y canal
-	public TV(int volumen, int canal) {
+	public TV(String modelo, double altura, double anchura, int volumen, int canal) {
 
+		super(modelo, altura, anchura);
+		
 		if (volumen >= 0 && volumen <= 100) {
 			this.volumen = volumen;
 		}
@@ -65,7 +67,10 @@ class TV extends Mando implements Volumenes{
 	public String toString() {
 		String str=super.toString();
 		
-		return "TV [volumen=" + volumen + ", canal=" + canal + "]";
+		str+="Volumen: "+volumen+"\n";
+		str+="Canal: "+canal+"\n";
+		
+		return str;
 	}
 
 	public int getCanal() {

@@ -3,7 +3,7 @@ package ex.entidades;
 import ex.interfaces.Volumenes;
 
 //Clase Minicadena
-class Minicadena extends Mando implements Volumenes{
+public class Minicadena extends Mando implements Volumenes{
 	
 	/*
 	 * atributos
@@ -15,7 +15,9 @@ class Minicadena extends Mando implements Volumenes{
 	public Minicadena() {
 	}
 
-	public Minicadena(int volumen) {
+	public Minicadena(String modelo, double altura, double anchura, int volumen) {
+		super(modelo, altura, anchura);
+		
 		if (volumen >= 0 && volumen <= 100) {
 			this.volumen = volumen;
 		}

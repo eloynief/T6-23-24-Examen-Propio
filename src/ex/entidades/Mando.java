@@ -1,7 +1,7 @@
 package ex.entidades;
 
 //Clase Mando
-class Mando implements Comparable<Mando>{
+public class Mando implements Comparable<Mando>{
 	private String modelo="";
 	private double altura=0;
 	private double anchura=0;
@@ -91,6 +91,20 @@ class Mando implements Comparable<Mando>{
 //			this.boton=(boton.equalsIgnoreCase("Si")||boton.equalsIgnoreCase("Sí"))?true:false;
 //		}
 //	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		boolean comp=false;
+		
+		if(obj instanceof Mando) {
+			Mando man=(Mando)obj;
+			comp=(man.modelo.equals(modelo));
+			
+		}
+		//
+		return comp;
+	}
+	
 
 	@Override
 	public String toString() {
@@ -107,17 +121,8 @@ class Mando implements Comparable<Mando>{
 	
 	@Override
 	public int compareTo(Mando o) {
-		int num=0;
-		
 		//llamamos al compare to del otro
-		num=this.modelo.compareTo(o.modelo);
-		
-//		if(this.modelo < per.modelo){
-//			num = -1;
-//		} else if(this.edad>per.edad){
-//			num = 1;
-//		}
-
+		int num=this.modelo.compareToIgnoreCase(o.modelo);
 		
 		return num;
 	}

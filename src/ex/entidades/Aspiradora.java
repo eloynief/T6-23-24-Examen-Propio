@@ -3,7 +3,7 @@ package ex.entidades;
 import ex.interfaces.Velocidades;
 
 //Clase Aspiradora
-class Aspiradora extends Mando implements Velocidades {
+public class Aspiradora extends Mando implements Velocidades {
 	private int velocidad;
 
 	// Constructor vacío
@@ -11,7 +11,8 @@ class Aspiradora extends Mando implements Velocidades {
 	}
 
 	// Constructor con velocidad
-	public Aspiradora(int velocidad) {
+	public Aspiradora(String modelo, double altura, double anchura, int velocidad) {
+		super(modelo, altura, anchura);
 		this.velocidad = velocidad;
 	}
 
@@ -45,11 +46,15 @@ class Aspiradora extends Mando implements Velocidades {
 	// Implementación de métodos de Velocidades
 	@Override
 	public void subirVelocidad() {
-		velocidad++;
+		if(this.velocidad<5) {
+			this.velocidad++;
+		}
 	}
 
 	@Override
 	public void bajarVelocidad() {
-		velocidad--;
+		if(this.velocidad>0) {
+			velocidad--;
+		}
 	}
 }
